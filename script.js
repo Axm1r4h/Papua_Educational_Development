@@ -1,59 +1,69 @@
- document.addEventListener('DOMContentLoaded', function () {
-  // Accordion
-  const accordions = document.querySelectorAll(".accorclass");
-  accordions.forEach((accordion) => {
-    accordion.addEventListener("click", function () {
-      this.classList.toggle("active");
-      const panel = this.nextElementSibling;
-      panel.style.display = panel.style.display === "block" ? "none" : "block";
-    });
+ const accordions = document.querySelectorAll(".accorclass");
+
+accordions.forEach((accordion) => {
+  accordion.addEventListener("click", function () {
+    this.classList.toggle("active");
+
+    const panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
   });
+});
 
-  // Story Slides
-  let currentIndex = 0;
-  const slides = document.querySelectorAll('.story-card');
+let currentIndex = 0;
+const slides = document.querySelectorAll('.story-card');
 
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.style.display = i === index ? 'flex' : 'none';
-    });
-  }
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.style.display = i === index ? 'flex' : 'none';
+  });
+}
 
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % slides.length;
-    showSlide(currentIndex);
-  }
-
-  function prevSlide() {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    showSlide(currentIndex);
-  }
-
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % slides.length;
   showSlide(currentIndex);
+}
 
-  // Founder Slides
-  const founderSlides = document.querySelectorAll('.founderslides');
-  let founderCurrentSlide = 0;
+function prevSlide() {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  showSlide(currentIndex);
+}
 
-  function showFounderSlide(index) {
-    founderSlides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
-    });
-  }
+document.addEventListener('DOMContentLoaded', () => {
+  showSlide(currentIndex);
+});
 
-  function nextFounderSlide() {
-    founderCurrentSlide = (founderCurrentSlide + 1) % founderSlides.length;
-    showFounderSlide(founderCurrentSlide);
-  }
+// ========== Founder Slides ==========
+const founderSlides = document.querySelectorAll('.founderslides');
+let founderCurrentSlide = 0;
 
-  function prevFounderSlide() {
-    founderCurrentSlide = (founderCurrentSlide - 1 + founderSlides.length) % founderSlides.length;
-    showFounderSlide(founderCurrentSlide);
-  }
+function showFounderSlide(index) {
+  founderSlides.forEach((slide, i) => {
+    slide.classList.remove('active');
+    if (i === index) {
+      slide.classList.add('active');
+    }
+  });
+}
 
+function nextFounderSlide() {
+  founderCurrentSlide = (founderCurrentSlide + 1) % founderSlides.length;
   showFounderSlide(founderCurrentSlide);
+}
 
-  // Mobile Menu
+function prevFounderSlide() {
+  founderCurrentSlide = (founderCurrentSlide - 1 + founderSlides.length) % founderSlides.length;
+  showFounderSlide(founderCurrentSlide);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  showFounderSlide(founderCurrentSlide);
+});
+
+document.addEventListener('DOMContentLoaded', function () {
   const mobileNavButton = document.getElementById('mobileNavButton');
   const mobileMenu = document.getElementById('mobileMenu');
   const menuOverlay = document.getElementById('menuOverlay');
@@ -66,14 +76,12 @@
     pageWrapper.classList.toggle('shifted');
   }
 
-  if (mobileNavButton && closeMenu && menuOverlay && mobileMenu) {
-    mobileNavButton.addEventListener('click', toggleMenu);
-    closeMenu.addEventListener('click', toggleMenu);
-    menuOverlay.addEventListener('click', toggleMenu);
+  mobileNavButton.addEventListener('click', toggleMenu);
+  closeMenu.addEventListener('click', toggleMenu);
+  menuOverlay.addEventListener('click', toggleMenu);
 
-    const menuLinks = mobileMenu.querySelectorAll('a');
-    menuLinks.forEach(link => {
-      link.addEventListener('click', toggleMenu);
-    });
-  }
+  const menuLinks = mobileMenu.querySelectorAll('a');
+  menuLinks.forEach(link => {
+    link.addEventListener('click', toggleMenu);
+  });
 });
