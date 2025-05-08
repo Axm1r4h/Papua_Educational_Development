@@ -425,20 +425,20 @@ hr.new3 {
 
 hr.new4 {
   border: 1.5px solid #73D45D;
-  width: 20%;
+  width: 18%;
   /* max-width: 40%; */
   /* margin: -32px 30px 20px 840px; */
 }
   
 hr.new5 {
   border: 1.5px solid #73D45D;
-  width: 23%;
+  width: 18%;
   /* max-width: 40%; */
   /* margin: -32px 30px 20px 840px; */
 }
 
 .article-section h2 {
-  font-size: 25px;
+  font-size: 30px;
 margin-bottom: 20px;
 position: relative;
 }
