@@ -1,4 +1,6 @@
-const accordions = document.querySelectorAll(".accorclass");
+document.addEventListener('DOMContentLoaded', function() {
+  
+  const accordions = document.querySelectorAll(".accorclass");
 
 accordions.forEach((accordion) => {
   accordion.addEventListener("click", function () {
