@@ -1,5 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-  
   const accordions = document.querySelectorAll(".accorclass");
 
 accordions.forEach((accordion) => {
