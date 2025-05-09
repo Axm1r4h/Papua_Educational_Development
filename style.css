@@ -1645,10 +1645,8 @@ hr.new17 {
   color: white;
   /* background:rgba(0, 0, 0, 0.4); */
   padding:20px;
-  max-width: 900px;
   border-radius:8px;
   text-align: center;
-  margin: 0px 0px 0px 300px;
   text-shadow: 0 0 10px rgba(0,0,0,0.7);
   font-weight: bold;
 }
