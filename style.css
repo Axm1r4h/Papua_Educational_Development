@@ -1687,11 +1687,11 @@ hr.new18 {
 
 .donate-description {
   max-width: 900px;
-  margin: 0 auto 70px auto;
+  /* margin: 0 auto 70px auto; */
   font-size: 16px;
   line-height: 1.6;
   color: #333;
-  padding: 10px;
+  padding: 40px 100px;
 }
 
 .donation-impact {
